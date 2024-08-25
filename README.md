@@ -5,7 +5,14 @@
 
 `library(pkgdown)` introduced hyphenation in
 [r-lib/pkgdown@3d06c13](https://github.com/r-lib/pkgdown/commit/3d06c13cdc253b0cf6f915c073c46ee27b70da2b)
-and I am unable to turn it off using `pkgdown/extra.css`.
+and I was unable to turn it off using `pkgdown/extra.css`.
+
+FIX: The CSS selector should be `.row > main`, not e.g. `body`.
+
+I’m leaving the rest of the issue description for posteriority in case
+this trips anybody else up.
+
+------------------------------------------------------------------------
 
 This repository demonstrates that while extra.css manages to switch the
 text color to red, hyphenation persists despite `hyphens: none;`.
@@ -37,3 +44,12 @@ To reproduce:
 
   and re-run pkgdown::build_site(). The text gets red, but the hyphens
   persist.
+
+SOLUTION: Use
+
+      .row > main {
+        color: red;
+        hyphens: none;
+      }
+
+instead.
