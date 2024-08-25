@@ -1,4 +1,4 @@
-body {
+.row > main {
   color: red;
-  hyphens: none !important;
+  hyphens: none;
 }
